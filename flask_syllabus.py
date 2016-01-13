@@ -29,6 +29,7 @@ schedule = "static/schedule.txt"  # This should be configurable
 import CONFIG
 
 
+
 import uuid
 app.secret_key = str(uuid.uuid4())
 app.debug=CONFIG.DEBUG
@@ -47,7 +48,7 @@ def index():
   if 'schedule' not in flask.session:
       app.logger.debug("Processing raw schedule file")
       raw = open('static/schedule.txt')
-      flask.session['schedule'] = pre.process(raw)
+      flask.session['schedule'], base_date = pre.process(raw)
 
   return flask.render_template('syllabus.html')
 
@@ -67,7 +68,7 @@ def page_not_found(error):
 @app.template_filter( 'fmtdate' )
 def format_arrow_date( date ):
     try: 
-        normal = arrow.get( date )
+        normal = arrow.get(date, "YYYY-MM-DD")
         return normal.format("ddd MM/DD/YYYY")
     except:
         return "(bad date)"
