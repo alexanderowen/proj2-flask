@@ -14,9 +14,9 @@
 <table class="class-schedule">
   {% for entry in session.schedule %}
   {% if loop.index is divisibleby 2 %}
-  <tr class="even">
+  <tr class="even" id="{% if session.current_week == loop.index %}current{% endif %}">
   {% else %}
-  <tr class="odd">
+  <tr class="odd" id="{% if session.current_week == loop.index %}current{% endif %}">
   {% endif %}	   
     <td class="week">{{ entry.week }}<br>{{ entry.date | fmtdate }}</td>
     <td class="topic">{{ entry.topic }}</td>

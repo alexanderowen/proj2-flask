@@ -5,7 +5,7 @@ import arrow
 import datetime
 
 base = arrow.now()
-datetime_week = datetime.timedelta(days=7)
+seven_days = datetime.timedelta(days=7) 
 
 def process(raw):
     """
@@ -44,8 +44,9 @@ def process(raw):
             entry['topic'] = ""
             entry['project'] = ""
             entry['week'] = content
-            entry['date'] = str(base + ((int(content)-1) * datetime_week)).split('T')[0]
             
+            week_date = base + ( (int(content)-1) * seven_days) #based on 'base', determines first day of the week
+            entry['date'] = str(week_date).split('T')[0] #splits the date so that time is not included            
 
         elif field == 'topic' or field == 'project':
             entry[field] = content
