@@ -1,7 +1,7 @@
 # README #  
 
 NAME: Alexander Owen  
-URL: http://ix.cs.uoregon.edu/~aowen/htbin/cis399/proj2-flask/  
+URL: http://ix.cs.uoregon.edu/~aowen/cis399/htbin/proj2-flask/  
 GITHUB URL: https://github.com/alexanderowen/proj2-flask  
 
 CIS 399 Assignment 1 Winter 2016   
