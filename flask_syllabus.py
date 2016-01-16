@@ -88,7 +88,7 @@ def get_week(base):
 	Returns:
 		(int): number of the week the current day falls between, 0 if out of range
 	'''
-	today = arrow.get(datetime.datetime.now(), tz.gettz('US/Pacific'))
+	today = arrow.utcnow().to(tz.gettz('US/Pacific'))
 	week_number = 1
 	start = base
 	end = base + seven_days	
